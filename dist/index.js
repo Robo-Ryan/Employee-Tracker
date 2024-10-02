@@ -1,3 +1,4 @@
+//DEPENDENCIES
 // import classes
 import Cli from "./classes/Cli.js";
 // create a new instance of the Cli class

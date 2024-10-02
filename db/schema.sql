@@ -1,8 +1,9 @@
 --create db
 DROP DATABASE IF EXISTS empoloyee_tracker_db;
-CREATE DATABASE empoloyee_tracker_db;
+DROP DATABASE IF EXISTS employee_tracker_db;
+CREATE DATABASE employee_tracker_db;
 
-\c empoloyee_tracker_db;
+\c employee_tracker_db;
 
 CREATE TABLE department (
   id SERIAL PRIMARY KEY,
