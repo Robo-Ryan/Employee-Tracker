@@ -21,3 +21,13 @@ INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES
 ('Malia', 'Brown', 5, 3),
 ('Sarah', 'Lourd', 6, 4),
 ('Tom', 'Allen', 7, 4);
+
+
+-- add statement
+INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES
+('John', 'Doe', 1, NULL),
+
+-- delete statement
+DELETE FROM table_name
+WHERE condition;
+
