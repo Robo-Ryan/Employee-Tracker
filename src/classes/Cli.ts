@@ -47,7 +47,10 @@ class Cli {
         else if (answers.CreateOrSelect === 'View All Departments') {
           this.viewDepartments();
         }
-  })
+        else if (answers.CreateOrSelect === 'Add Department') {
+          this.addDepartment();
+        }
+      })
   }
     // Method to view all employees
     private async viewEmployees(): Promise<void> {
@@ -240,6 +243,28 @@ class Cli {
           this.startCli(); // Go back to the main menu after displaying
         } catch (error) {
           console.error('Error retrieving departments:', error);
+        }
+      }
+      private async addDepartment(): Promise<void> {
+        try {
+          // Prompt the user for the department's information
+          const answers = await inquirer.prompt([
+            {
+              type: 'input',
+              name: 'name',
+              message: "What is the department's name?",
+            },
+          ]);
+    
+          // Insert the new department into the database
+          await pool.query('INSERT INTO department (name) VALUES ($1)', [answers.name]);
+    
+          console.log('Department added successfully!');
+    
+          // After adding, prompt the user for a new action
+          this.startCli(); // Go back to the main menu after adding
+        } catch (error) {
+          console.error('Error adding department:', error);
         }
       }
 
